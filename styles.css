@@ -3,6 +3,74 @@
   --green: #49aa26;
   --light-green: #3dd705;
   --red: #e92929;
+  --base-purple: #363f5f;
+  --background: #f0f2f5;
+  --header-bg: #2d4a22;
+}
+
+.darkmode {
+  --header-bg: #52057b;
+  --dark-blue: #fff;
+  --base-purple: #bc6ff1;
+  --green: #892cdc;
+  --light-green: #bc6ff1;
+  --background: #263238;
+}
+
+.wrapper-color-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  margin-bottom: 1em;
+}
+
+.color-switch {
+  width: 4em;
+  height: 2.2em;
+  border-radius: 10em;
+  background-color: var(--header-bg);
+  border: 2px solid var(--green);
+  position: absolute;
+  cursor: pointer;
+}
+
+.color-switch-toogle {
+  width: 1.6em;
+  height: 1.6em;
+  background: transparent;
+  position: absolute;
+  border-radius: 10em;
+  cursor: pointer;
+  top: 0.2em;
+  left: 0.2em;
+  transition: all 250ms ease-in-out;
+}
+
+.color-switch::before {
+  content: '🌕';
+  position: absolute;
+  display: inline-block;
+  color: white;
+  left: -5.2em;
+  top: 1px;
+  width: 12em;
+  font-size: 1.3em;
+  z-index: 2;
+  transition: all 250ms ease-in-out;
+}
+#toggle-theme:checked ~ label .color-switch-toogle {
+  transform: translateX(1.7em);
+}
+#toggle-theme:checked ~ .color-switch::before {
+  content: '🌑';
+  font-size: 1.3em;
+  transform: translateX(1.3em);
+}
+.toggle-theme {
+  display: none;
 }
 
 * {
@@ -16,8 +84,8 @@ html {
 }
 
 body {
-  background: #f0f2f5;
-  font-family: "Poppins", sans-serif;
+  background: var(--background);
+  font-family: 'Poppins', sans-serif;
 }
 .sr-only {
   position: absolute;
@@ -88,7 +156,7 @@ button:hover {
 
 /* HEADER */
 header {
-  background: #2d4a22;
+  background: var(--header-bg);
   padding: 2rem 0 10rem;
   text-align: center;
 }
@@ -109,7 +177,7 @@ header h1 {
 
 /* CARDS */
 .card {
-  background: #fff;
+  background: var(--background);
   padding: 1.5rem 2rem;
   border-radius: 0.25rem;
   margin-bottom: 2rem;
@@ -146,7 +214,7 @@ header h1 {
 #data-table {
   width: 100%;
   border-spacing: 0 0.5rem;
-  color: #969cb3;
+  color: var(--base-purple);
 }
 
 table thead tr th:first-child,
@@ -179,7 +247,7 @@ table td {
 }
 
 td.description {
-  color: var(--dark-blue);
+  color: var(--base-purple);
 }
 td.income {
   color: #12a454;

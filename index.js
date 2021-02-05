@@ -22,6 +22,23 @@ const Storage = {
   },
 };
 
+const DarkTheme = {
+  checkMode() {
+    const colorSwitch = document.getElementById('toggle-theme');
+    if (colorSwitch.checked) {
+      this.darkModeOn();
+    } else {
+      this.darkModeOff();
+    }
+  },
+  darkModeOn() {
+    document.body.classList.add('darkmode');
+  },
+  darkModeOff() {
+    document.body.classList.remove('darkmode');
+  },
+};
+
 const Transaction = {
   all: Storage.get(),
 
